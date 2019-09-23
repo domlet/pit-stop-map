@@ -2,11 +2,11 @@
 Mapbox project for San Francisco Public Works, which operates Pit Stops in partnership with the nonprofit SF Clean City.
 
 ## Resources
-* [Here's their 9/2019 data in a GSheet](https://docs.google.com/spreadsheets/d/1JCVRk_QrMEd8EsUJdAX4_P4I-Xhc-eCmUTknb0Z_VYY/edit#gid=0).
+* [Here's their 9/2019 data in a GSheet](https://docs.google.com/spreadsheets/d/1JCVRk_QrMEd8EsUJdAX4_P4I-Xhc-eCmUTknb0Z_VYY/edit#gid=0)
 * [Here's their current webpage and map](https://sfpublicworks.wixsite.com/pitstop)
 * [Here's our internal Mapbox ticket](https://github.com/mapbox/community-projects/issues/394)
 * [Here's their API for this live data set](https://data.sfgov.org/Health-and-Social-Services/Pit-Stop-Locations/2gny-9qcr
-).
+)
 
 ## Get started
 
