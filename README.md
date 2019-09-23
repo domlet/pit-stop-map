@@ -1,5 +1,14 @@
-# pit-stop-map
+# Pit Stop Map
 Mapbox project for San Francisco Public Works, which operates Pit Stops in partnership with the nonprofit SF Clean City.
+
+## Resources
+* [Here's their 9/2019 data in a GSheet](https://docs.google.com/spreadsheets/d/1JCVRk_QrMEd8EsUJdAX4_P4I-Xhc-eCmUTknb0Z_VYY/edit#gid=0).
+* [Here's their current webpage and map](https://sfpublicworks.wixsite.com/pitstop)
+* [Here's our internal Mapbox ticket](https://github.com/mapbox/community-projects/issues/394)
+* [Here's their API for this live data set](https://data.sfgov.org/Health-and-Social-Services/Pit-Stop-Locations/2gny-9qcr
+).
+
+## Get started
 
 1. Clone the repo to your local:
 
@@ -28,9 +37,4 @@ Then replace `pk.eyJ1IjoiZG9tYm94IiwiYSI6ImNqeXo0amwxcjAxMmQzY3J0d3F6b2JkOTgifQ.
 3. Open `index.html` in your browser and the page (with a working map) should load.
 
 ## Preview
-
 * https://twitter.com/domlet/status/1176210664743792640
-
-## Resources
- 
-* [Here's the data](https://docs.google.com/spreadsheets/d/1JCVRk_QrMEd8EsUJdAX4_P4I-Xhc-eCmUTknb0Z_VYY/edit#gid=0).
