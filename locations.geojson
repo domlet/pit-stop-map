@@ -1,0 +1,455 @@
+var locations = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "388 Ellis",
+        "fullname": "388 Ellis Pit Stop",
+        "location": "Ellis between Taylor & Jones",
+        "startdate": "7/1/14",
+        "group": "Mobile",
+        "hours": "Mon-Sat 9-4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.411812,
+          37.784951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "101 Hyde",
+        "fullname": "101 Hyde Pit Stop",
+        "location": "corner of Hyde & Golden Gate",
+        "startdate": "7/1/14",
+        "group": "Mobile",
+        "hours": "Mon-Fri 10:30-8:30, Sat 9:30-4:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.415627,
+          37.781775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "133 Golden Gate",
+        "fullname": "133 Golden Gate Pit Stop",
+        "location": "GG between Leavenworth & Jones",
+        "startdate": "7/1/14",
+        "group": "Mobile",
+        "hours": "Mon-Fri 2-9, Sat 9-4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.412797,
+          37.781952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "6th & Jessie",
+        "fullname": "6th & Jessie Pit Stop",
+        "location": "corner of 6th & Jessie",
+        "startdate": "4/1/15",
+        "group": "Mobile",
+        "hours": "Open 24 Hours"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4093246,
+          37.781509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Market & Castro",
+        "fullname": "Market & Castro Pit Stop",
+        "location": "corner of Market & Castro",
+        "startdate": "6/12/15",
+        "group": "JCDecaux",
+        "hours": "Open 24 Hours"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4348053,
+          37.7627732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "16th & Mission",
+        "fullname": "16th & Mission Pit Stop",
+        "location": "corner of 16th & mission",
+        "startdate": "7/1/15",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4200173,
+          37.7649465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UN Plaza",
+        "fullname": "UN Plaza Pit Stop",
+        "location": "UN Plaza",
+        "startdate": "7/1/15",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4130822,
+          37.7801432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "16th & Capp",
+        "fullname": "16th & Capp Pit Stop",
+        "location": "corner of 16th & capp",
+        "startdate": "7/1/15",
+        "group": "Mobile",
+        "hours": "Mon-Fri 11-6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4187982,
+          37.7651596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grove & Larkin",
+        "fullname": "Grove & Larkin Pit Stop",
+        "location": "corner of Grove & Larkin",
+        "startdate": "7/1/15",
+        "group": "JCDecaux",
+        "hours": "Daily 7-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4167517,
+          37.7787168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stanyan & Waller",
+        "fullname": "Stanyan & Waller Pit Stop",
+        "location": "corner of Stanyan & Waller",
+        "startdate": "12/5/15",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4534175,
+          37.7682426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mission & Sycamore",
+        "fullname": "Mission & Sycamore Pit Stop",
+        "location": "corner of Mission & Sycamore",
+        "startdate": "2/1/16",
+        "group": "Mobile",
+        "hours": "Mon-Fri 12:30-7:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.419517,
+          37.7627254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eddy & Larkin",
+        "fullname": "Eddy & Larkin Pit Stop",
+        "location": "corner of Eddy & Larkin",
+        "startdate": "6/15/16",
+        "group": "Mobile",
+        "hours": "Mon-Sat 9:30-4:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4173774,
+          37.7833245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mendell Plaza",
+        "fullname": "Mendell Plaza Pit Stop",
+        "location": "3rd st. between Oakdale & Palou",
+        "startdate": "6/15/16",
+        "group": "Mobile",
+        "hours": "Mon-Fri 9-5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3908134,
+          37.7340389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "McCoppin & Valencia",
+        "fullname": "McCoppin & Valencia Pit Stop",
+        "location": "corner of McCoppin & Valencia",
+        "startdate": "6/15/16",
+        "group": "Mobile",
+        "hours": "Mon-Fri 10:30-5:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4225748,
+          37.7714123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Haight & Buena Vista",
+        "fullname": "Haight & Buena Vista Pit Stop",
+        "location": "corner of Haight & Buena Vista Ave West",
+        "startdate": "7/1/16",
+        "group": "Mobile",
+        "hours": "Mon-Fri 12-7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4404302,
+          37.7708165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hallidie Plaza",
+        "fullname": "Hallidie Plaza Pit Stop",
+        "location": "Cyril Magnin between Market & Eddy",
+        "startdate": "9/8/16",
+        "group": "JCDecaux",
+        "hours": "Daily 7-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4077797,
+          37.7844142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "VMD Park",
+        "fullname": "VMD Park Pit Stop",
+        "location": "Sherman between Harrison & Cleveland",
+        "startdate": "1/1/17",
+        "group": "Mobile",
+        "hours": "Mon-Fri 8-4, Sat-Sun 9-5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4060242,
+          37.7767602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eddy & Jones",
+        "fullname": "Eddy & Jones Pit Stop",
+        "location": "corner of Eddy & Jones",
+        "startdate": "8/1/17",
+        "group": "JCDecaux",
+        "hours": "Open 24 Hours"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4122697,
+          37.7841238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Myrtle & Larkin",
+        "fullname": "Myrtle & Larkin Pit Stop",
+        "location": "corner of Myrtle & Larkin",
+        "startdate": "8/1/17",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.418094,
+          37.785563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Church & Market",
+        "fullname": "Church & Market Pit Stop",
+        "location": "corner of Church & Market",
+        "startdate": "7/1/18",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.42792,
+          37.768541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Washington Sq.",
+        "fullname": "Washington Sq. Pit Stop",
+        "location": "Washington Square @ Union St.",
+        "startdate": "7/1/18",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.469704,
+          37.800472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "La Playa",
+        "fullname": "La Playa Pit Stop",
+        "location": "corner of Judah & La Playa",
+        "startdate": "7/1/18",
+        "group": "Mobile",
+        "hours": "Daily 9-4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.5096,
+          37.760274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Embarcadero Plaza",
+        "fullname": "Embarcadero Plaza Pit Stop",
+        "location": "at Sue Bierman park along Drumm",
+        "startdate": "7/1/18",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.394661,
+          37.794809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "24th & Mission",
+        "fullname": "24th & Mission Pit Stop",
+        "location": "corner of 24th & mission",
+        "startdate": "10/1/18",
+        "group": "JCDecaux",
+        "hours": "Daily 9-8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.418807,
+          37.752152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ocean Beach",
+        "fullname": "Ocean Beach Pit Stop",
+        "location": "Great Highway near Beach Chalet restaurant",
+        "startdate": "6/28/19",
+        "group": "Mobile",
+        "hours": "Mon-Fri 12-7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.511083,
+          37.769388
+        ]
+      }
+    }
+  ]
+}
