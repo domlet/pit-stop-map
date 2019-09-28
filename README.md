@@ -10,26 +10,28 @@ Mapbox project for San Francisco Public Works, which operates Pit Stops in partn
 
 ## Get started
 
-1. Clone the repo to your local:
+### 1. Clone the repo to your local:
 
 ```
 git clone git@github.com:domlet/pit-stop-map.git
 ```
-2. Install pre-requisites:
+### 2. Install pre-requisites:
 
 - [node](https://nodejs.org/en/download/)
+
 with the `pit-stop-map` as your current working directory, run
+
 - `npm install yarn -g`
 - `yarn install`
 
-3. Setup the access token
+### 3. Setup the access token
 
 Export it as an environment variable
 ```
 export PITSTOP_SF_ACCESS_TOKEN=your-access-token-here
 ```
 
-4. Start developing
+### 4. Start developing
 ```
 yarn run start
 ```
