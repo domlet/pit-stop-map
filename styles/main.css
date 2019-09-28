@@ -1,3 +1,5 @@
+@import '~mapbox-gl/dist/mapbox-gl.css';
+
   body {
     color: #404040;
     font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;

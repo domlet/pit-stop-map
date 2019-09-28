@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8' />
-  <title>Pit Stop locations</title>
-  <meta name='robots' content='noindex, nofollow'>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
-  <link href='styles.css' rel='stylesheet' />
-</head>
+import '../styles/main.css';
+import mapboxgl from 'mapbox-gl';
 
-<body>
-  <div class='sidebar'>
-    <div class='heading'>
-      <h1>Pit Stop locations</h1>
-    </div>
-    <div id='listings' class='listings'></div>
-  </div>
-  <div id='map' class='map'> </div>
-
-  <script>
-
-  	mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
-
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pit-stop-sf/ck1152h070d3n1do19iloxevj',
     center: [-122.4194, 37.7749],
-    zoom: 13
+    zoom: 13,
+    accessToken: process.env.PITSTOP_SF_ACCESS_TOKEN
   });
-
-
   map.on('load', function (e) {
 //    buildLocationList(locations);
   });
@@ -57,7 +34,3 @@ var map = new mapboxgl.Map({
   //     }
   //   }
   // }
-  </script>
-
-</body>
-</html>
