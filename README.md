@@ -15,26 +15,25 @@ Mapbox project for San Francisco Public Works, which operates Pit Stops in partn
 ```
 git clone git@github.com:domlet/pit-stop-map.git
 ```
-2. Add your token safely:
-```
-touch .gitignore
-open .gitignore
-touch config.js
-open config.js
-```
-Type this into `.gitignore` then save and close.
-```
-config.js
-```
-Type this into `config.js`:
-```
-var config = {
-  MAPBOX_SECRET_TOKEN : 'pk.eyJ1IjoiZG9tYm94IiwiYSI6ImNqeXo0aHJxYjA3dnozY3BxbGw2a2dsNWQifQ.p9uWoaFSE6qSIY415Q8cSQ',
-}
-```
-Then replace `pk.eyJ1IjoiZG9tYm94IiwiYSI6ImNqeXo0amwxcjAxMmQzY3J0d3F6b2JkOTgifQ.ef_wY4EWLDKLbvxmB75BHg` (that is a restricted token belonging to Mapbox user `dombox` and it won't work for you) with your own token from https://accounts.mapbox.com
+2. Install pre-requisites:
 
-3. Open `index.html` in your browser and the page (with a working map) should load.
+- [node](https://nodejs.org/en/download/)
+with the `pit-stop-map` as your current working directory, run
+- `npm install yarn -g`
+- `yarn install`
+
+3. Setup the access token
+
+Export it as an environment variable
+```
+export PITSTOP_SF_ACCESS_TOKEN=your-access-token-here
+```
+
+4. Start developing
+```
+yarn run start
+```
+Then open `http://localhost:1337/` in your browser, and as you make edits to your code and save, the browser page will refresh automatically!
 
 ## Preview
 * https://twitter.com/domlet/status/1176210664743792640
