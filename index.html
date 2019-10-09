@@ -33,6 +33,43 @@ var map = new mapboxgl.Map({
 
   map.on('load', function (e) {
 //    buildLocationList(locations);
+
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['pitstops-sf']
+  });
+
+  if (!features.length) {
+    return;
+  }
+  var feature = features[0];
+
+});
+
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: false,
+});
+
+map.on('mouseenter', 'pitstops-sf', function(e) {
+
+  map.getCanvas().style.cursor = 'pointer';
+
+
+  var pitstops = e.features[0].properties.Name;
+  var hours = e.features[0].properties.Hours;
+
+
+  popup.setLngLat(e.lngLat)
+    .setHTML('<p> <h3 align="center">' + pitstops + '</h3> </p>'+'<p> <strong> Hours: </strong>' + hours + '</p>')
+    .addTo(map);
+});
+
+
+
+map.on('mouseleave', 'pitstops-sf', function() {
+  map.getCanvas().style.cursor = '';
+});
   });
 
   // function buildLocationList(data) {
