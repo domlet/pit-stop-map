@@ -8,6 +8,8 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
   <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
   <link href='styles.css' rel='stylesheet' />
 </head>
 
@@ -32,7 +34,7 @@
 
   <script>
 
-  	mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -83,28 +85,12 @@ map.on('mouseleave', 'pitstops-sf', function() {
 });
   });
 
-  // function buildLocationList(data) {
-  //   for (i = 0; i < data.features.length; i++) {
-  //     var currentFeature = data.features[i];
-  //     var prop = currentFeature.properties;
-  //     var listings = document.getElementById('listings');
-  //     var listing = listings.appendChild(document.createElement('div'));
-  //     listing.className = 'item';
-  //     listing.id = "listing-" + i;
-  //
-  //     var link = listing.appendChild(document.createElement('a'));
-  //     link.href = '#';
-  //     link.className = 'title';
-  //     link.dataPosition = i;
-  //     link.innerHTML = prop.name;
-  //
-  //     var details = listing.appendChild(document.createElement('div'));
-  //     details.innerHTML = prop.address;
-  //     if (prop.hours) {
-  //       details.innerHTML += ' <br> ' + prop.hours;
-  //     }
-  //   }
-  // }
+  map.addControl(new MapboxGeocoder({
+    collapsed:true,
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  }));
+
   </script>
 
 </body>
