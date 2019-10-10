@@ -6,22 +6,30 @@
   <meta name='robots' content='noindex, nofollow'>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+  <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
   <link href='styles.css' rel='stylesheet' />
 </head>
 
 <body>
-  <div class='sidebar'>
-    <div class='heading'>
-      <h1>Pit Stop locations</h1>
-    </div>
-    <div id='listings' class='listings'></div>
-  </div>
+
   <div id='map' class='map'> </div>
+  <div class='logo prose absolute top left  mx24 my24 align-center'>
+      <div class=" px12 py12 bg-blue">
+        <h2 className="txt txt-h2 "><span class='color-red'>SAN FRANCISCO</span> <span class='color-white'>PIT STOP</span></h1>
+      </div>
+      <div class='slogan pt6'>
+          <p class='txt txt-l txt-shadow-lighten25 '>  Where neighborhood challenges meet civic pride.</p>
+      </div>
+  </div>
+
+
 
   <script>
 
-  	mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -33,8 +41,6 @@ var map = new mapboxgl.Map({
 
   map.on('load', function (e) {
 //    buildLocationList(locations);
-<<<<<<< Updated upstream
-=======
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
@@ -72,31 +78,14 @@ map.on('mouseenter', 'pitstops-sf', function(e) {
 map.on('mouseleave', 'pitstops-sf', function() {
   map.getCanvas().style.cursor = '';
 });
->>>>>>> Stashed changes
   });
 
-  // function buildLocationList(data) {
-  //   for (i = 0; i < data.features.length; i++) {
-  //     var currentFeature = data.features[i];
-  //     var prop = currentFeature.properties;
-  //     var listings = document.getElementById('listings');
-  //     var listing = listings.appendChild(document.createElement('div'));
-  //     listing.className = 'item';
-  //     listing.id = "listing-" + i;
-  //
-  //     var link = listing.appendChild(document.createElement('a'));
-  //     link.href = '#';
-  //     link.className = 'title';
-  //     link.dataPosition = i;
-  //     link.innerHTML = prop.name;
-  //
-  //     var details = listing.appendChild(document.createElement('div'));
-  //     details.innerHTML = prop.address;
-  //     if (prop.hours) {
-  //       details.innerHTML += ' <br> ' + prop.hours;
-  //     }
-  //   }
-  // }
+  map.addControl(new MapboxGeocoder({
+    collapsed:true,
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  }));
+
   </script>
 
 </body>
