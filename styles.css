@@ -124,3 +124,7 @@
 .mapboxgl-popup-content-wrapper {
   padding: 5%;
 }
+
+.bg-blue{
+  background-color: #242162!important;
+}
