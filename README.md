@@ -18,11 +18,16 @@ git clone git@github.com:domlet/pit-stop-map.git
 ### 2. Install pre-requisites:
 
 - [node](https://nodejs.org/en/download/)
-
-with the `pit-stop-map` as your current working directory, run
-
-- `npm install yarn -g`
-- `yarn install`
+- Next you need to install [yarn](https://yarnpkg.com/lang/en/) which manages Javascript libraries used in this project.
+Install it by running
+```
+npm install yarn -g
+```
+- With this project as your current working directory, run:
+```
+yarn install
+```
+This will automatically download libraries used in the development of this project.
 
 ### 3. Setup the access token
 

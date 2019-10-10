@@ -14,7 +14,10 @@
   },
   "homepage": "https://github.com/domlet/pit-stop-map#readme",
   "dependencies": {
-    "mapbox-gl": "^1.4.0"
+    "@turf/distance": "^6.0.1",
+    "jquery": "^3.4.1",
+    "mapbox-gl": "^1.4.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
