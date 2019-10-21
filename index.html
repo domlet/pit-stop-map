@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Pit Stop locations</title>
+  <meta name='robots' content='noindex, nofollow'>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+  <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+  <link href='styles.css' rel='stylesheet' />
+</head>
+
+<body>
+
+  <div id='map' class='map'> </div>
+  <div class='logo prose absolute top left  mx24 my24 align-center'>
+      <div class=" px12 py12 bg-blue">
+        <h2 className="txt txt-h2 "><span class='color-red'>SAN FRANCISCO</span> <span class='color-white'>PIT STOP</span></h1>
+      </div>
+      <div class='slogan pt6'>
+          <p class='txt txt-l txt-shadow-lighten25 '>  Where neighborhood challenges meet civic pride.</p>
+      </div>
+  </div>
+
+
+
+  <script>
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGl0LXN0b3Atc2YiLCJhIjoiY2swenVuMWcyMHVlcjNrb2J6eXZ0cWt4dCJ9.OP5igiHigBLavA21zS-DVg'
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/pit-stop-sf/ck1152h070d3n1do19iloxevj',
+    center: [-122.4194, 37.7749],
+    zoom: 13
+  });
+
+
+  map.on('load', function (e) {
+//    buildLocationList(locations);
+
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['pitstops-sf']
+  });
+
+  if (!features.length) {
+    return;
+  }
+  var feature = features[0];
+
+});
+
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: true,
+});
+
+map.on('mouseenter', 'pitstops-sf', function(e) {
+
+  map.getCanvas().style.cursor = 'pointer';
+
+
+  var pitstops = e.features[0].properties.Name;
+  var hours = e.features[0].properties.Hours;
+
+
+  popup.setLngLat(e.lngLat)
+    .setHTML('<p> <h3 align="center">' + pitstops + '</h3> </p>'+'<p> <strong> Hours: </strong>' + hours + '</p>')
+    .addTo(map);
+});
+
+
+
+map.on('mouseleave', 'pitstops-sf', function() {
+  map.getCanvas().style.cursor = '';
+});
+  });
+
+  map.addControl(new MapboxGeocoder({
+    collapsed:true,
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  }));
+
+  </script>
+
+</body>
+</html>
