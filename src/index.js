@@ -49,7 +49,6 @@ map.on('mouseenter', 'pitstops-sf', function(e) {
 });
 map.on('mouseleave', 'pitstops-sf', function() {
     map.getCanvas().style.cursor = '';
-  });
 });
 
 
