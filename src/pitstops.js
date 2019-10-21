@@ -5,13 +5,7 @@ export function getPitstops(map) {
         sourceLayer: 'Pitstops-SF'
     });
 
-    return pitstopsGeoJson.map( (pitstop) => {
-        return {
-            type: "Feature",
-            properties: pitstop.properties,
-            geometry: pitstop.geometry
-        }
-    });
+    return pitstopsGeoJson;
 }
 
 
@@ -22,11 +16,5 @@ export function sortPitstops(pitstops, point) {
         return d1-d2;
     });
 
-    // Add/Update distance field to properties
-    return sorted.map((pitstop) => {
-        const dist = distance(pitstop.geometry.coordinates, point, {units: 'miles'});
-        pitstop.properties['distance'] = dist;
-
-        return pitstop;
-    });
+    return sorted;
 }

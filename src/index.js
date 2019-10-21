@@ -1,78 +1,75 @@
 import '../styles/main.css';
 import mapboxgl from 'mapbox-gl';
 import {getPitstops, sortPitstops} from './pitstops';
-import $ from 'jquery';
-import 'slick-carousel';
+import {createCarousel, updateCarousel, bindFocusChangeListener} from './slider';
+import {AppState} from './state';
 
-const startLocation = [-122.4194, 37.7749];
-
-function formatDistance(distance) {
-    const oneMile = 5280; //feet
-    const feet = (distance*oneMile)|0;//integer
-    if(feet > 1000) {
-        const rounded = Math.floor(distance*10)/10;
-        return `${rounded} mi`;
-    }else{
-        return `${feet} ft`;
-    }
-}
-
-function createPitstopDOM(pitstop) {
-    return `
-    <div class='slider-entry'>
-      <div class='slider-entry-content'>
-        <h3>${pitstop.Name}</h3>
-        <h5>${pitstop.Address}</h5>
-        <h6>${formatDistance(pitstop.distance)}</h6>
-        <h6>${pitstop.Hours}</h6>
-      </div>
-    </div>
-    `;
-}
-
-
-function updateCarousel(pitstops) {
-    $('.slider').slick('removeSlide', null, null, true);
-
-    for(const pitstop of pitstops){
-        $('.slider').slick('slickAdd', createPitstopDOM(pitstop.properties));
-    };
-}
+const center = [-122.4194, 37.7749];
 
 //Initialize the map
-let map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/pit-stop-sf/ck1152h070d3n1do19iloxevj',
-    center: [-122.4194, 37.7749],
+    style: 'mapbox://styles/pit-stop-sf/ck20ovjj46l9f1cn6d7mnz0fj',
+    center,
     zoom: 13,
     accessToken: process.env.PITSTOP_SF_ACCESS_TOKEN
 });
 // Add geolocate control to the map.
-let geolocateControl = new mapboxgl.GeolocateControl({
+const geolocateControl = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
     trackUserLocation: true
 });
-map.addControl(geolocateControl);
+map.addControl(geolocateControl, 'bottom-right');
 
 
 map.on('load', function (e) {
-    //Updated by the geolocate control whenever the users location changes
-    let currentUserLocation = startLocation;
-    let pitstops = sortPitstops(getPitstops(map), currentUserLocation);
-    // Setup hook to update users current position and resort pitstops based on updated location
+    // Get pitstop info from the map
+    let pitstops = sortPitstops(getPitstops(map), center);
+    // Initialize the carousel with pitstop data
+    createCarousel(pitstops, center);
+
+    // callback fires whenever app-state changes
+    const state = new AppState(() => {
+        if(state.change('focusPitstopIndex')){
+            const change = state.change('focusPitstopIndex');
+            // Unfocus previous
+            for(const pitstop of pitstops){
+                map.setFeatureState({
+                    id: pitstop.id,
+                    source: 'composite',
+                    sourceLayer: 'Pitstops-SF'
+                }, { focused: true });
+            }
+
+            // Focus current
+            map.setFeatureState({
+                id: pitstops[change.curr].id,
+                source: 'composite',
+                sourceLayer: 'Pitstops-SF'
+            }, { focused: false });
+            map.flyTo({
+                center:pitstops[change.curr].geometry.coordinates,
+                zoom: 14
+            });
+        }
+
+        if(state.change('userLocation')){
+            if(state.get('userLocation')){
+                pitstops = sortPitstops(pitstops, state.get('userLocation'));
+                updateCarousel(pitstops, state.get('userLocation'));
+            }
+        }
+    });
+
+    // Setup hooks to update app-state
     geolocateControl.on('geolocate', function(position) {
-        currentUserLocation = [position.coords.longitude, position.coords.latitude];
-        pitstops = sortPitstops(pitstops, currentUserLocation);
-        updateCarousel(pitstops);
+        state.set('userLocation', [position.coords.longitude, position.coords.latitude]);
     });
-
-    $('.slider').slick({
-        dots: false
+    bindFocusChangeListener((index) => {
+        state.set('focusPitstopIndex', index);
     });
-    updateCarousel(pitstops);
-
 });
 
 

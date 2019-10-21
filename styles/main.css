@@ -22,7 +22,7 @@ body {
 .slider {
   width: 80%;
   margin: 20px auto;
-  box-shadow: 0px 0px 100px 1px rgba(0,0,0,0.64);
+  box-shadow: inset 0px 0px 50px 50px rgba(0,0,0,0.35), 0px 0px 50px 50px rgba(0,0,0,0.35);
 }
 
 .slider-entry {
