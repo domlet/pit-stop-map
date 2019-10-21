@@ -31,6 +31,27 @@ const geocoder = new MapboxGeocoder({
 
 map.addControl(geolocateControl, 'bottom-right');
 map.addControl(geocoder, 'bottom-left');
+const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: true,
+  });
+
+map.on('mouseenter', 'pitstops-sf', function(e) {
+    map.getCanvas().style.cursor = 'pointer';
+
+    var pitstops = e.features[0].properties.Name;
+    var hours = e.features[0].properties.Hours;
+
+
+    popup.setLngLat(e.lngLat)
+        .setHTML('<p> <h3 align="center">' + pitstops + '</h3> </p>'+'<p> <strong> Hours: </strong>' + hours + '</p>')
+        .addTo(map);
+});
+map.on('mouseleave', 'pitstops-sf', function() {
+    map.getCanvas().style.cursor = '';
+  });
+});
+
 
 
 map.on('load', function (e) {
