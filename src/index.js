@@ -1,5 +1,6 @@
 import '../styles/main.css';
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import {getPitstops, sortPitstops} from './pitstops';
 import {createCarousel, updateCarousel, bindFocusChangeListener} from './slider';
 import {AppState} from './state';
@@ -21,7 +22,15 @@ const geolocateControl = new mapboxgl.GeolocateControl({
     },
     trackUserLocation: true
 });
+
+const geocoder = new MapboxGeocoder({
+    accessToken: process.env.PITSTOP_SF_ACCESS_TOKEN,
+    mapboxgl: mapboxgl,
+    collapsed: true
+});
+
 map.addControl(geolocateControl, 'bottom-right');
+map.addControl(geocoder, 'bottom-left');
 
 
 map.on('load', function (e) {
